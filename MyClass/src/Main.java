@@ -1,4 +1,73 @@
 // --------------------------------------------------
+// else-if文
+// --------------------------------------------------
+//問題1：点数でランク分けしよう
+//        条件
+//int score = 72;
+//90以上→「A」
+//        70以上→「B」
+//それ以外→「C」
+
+//class Main {
+//    public static void main(String[] args) {
+////        int score = 72;
+////        int score = 90;
+//        int score = 69;
+//        if (score >= 90) {
+//            System.out.println("A");
+//        } else if (score >= 70) {
+//            System.out.println("B");
+//        } else {
+//            System.out.println("C");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：年齢の範囲でメッセージを変えよう
+//        条件
+//int age = 25;
+//18以上かつ30未満→「若い世代」
+//        30以上→「大人」
+//        18未満→「未成年」
+
+//class Main {
+//    public static void main(String[] args) {
+////        int age = 25;
+////        int age = 30;
+//        int age = 17;
+//        if (age >= 18 && age < 30) {
+//            System.out.println("若い世代");
+//        } else if (age >= 30) {
+//            System.out.println("大人");
+//        } else {
+//            System.out.println("未成年");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：会員判定
+//        条件
+//boolean isMember = true;
+//boolean hasCoupon = false;
+//「会員またはクーポン所持」の場合→「割引対象」
+//どちらもfalse→「対象外」
+
+class Main {
+    public static void main(String[] args) {
+//        boolean isMember = true;
+        boolean isMember = false;
+        boolean hasCoupon = false;
+        if (isMember || hasCoupon) {
+            System.out.println("割引対象");
+        } else {
+            System.out.println("対象外");
+        }
+    }
+}
+
+// --------------------------------------------------
 // if文
 // --------------------------------------------------
 //問題1：合格かどうか判定しよう
@@ -45,17 +114,17 @@
 //trueなら「営業中」
 //falseなら「閉店中」
 
-class Main {
-    public static void main(String[] args) {
-//        boolean isOpen = false;
-        boolean isOpen = true;
-        if (isOpen) {
-            System.out.println("営業中");
-        } else {
-            System.out.println("閉店中");
-        }
-    }
-}
+//class Main {
+//    public static void main(String[] args) {
+////        boolean isOpen = false;
+//        boolean isOpen = true;
+//        if (isOpen) {
+//            System.out.println("営業中");
+//        } else {
+//            System.out.println("閉店中");
+//        }
+//    }
+//}
 
 // --------------------------------------------------
 // 文字列操作
