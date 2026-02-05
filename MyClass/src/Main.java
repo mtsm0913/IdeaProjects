@@ -1,4 +1,60 @@
 // --------------------------------------------------
+// for文
+// --------------------------------------------------
+//問題1：1〜5を表示しよう
+//        条件
+//for文を使って1〜5を表示する
+//1行ずつ出力する
+
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 5; i++) {
+//            System.out.println(i);
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：メッセージを3回表示しよう
+//        条件
+//「Javaを学習中」を3回表示する
+//回数は for文で制御する
+
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 3; i++) {
+//            System.out.println("Javaを学習中");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：回数つきのメッセージを表示しよう
+//        条件
+//1〜4の数字を使って
+// 「1回目です」「2回目です」…のように4行表示する
+//        文字列結合を使う
+
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 4; i++) {
+//            System.out.println(i + "回目です");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//早めに終わった人向け：for文の中にfor文がある時の挙動を確認してみよう
+class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 2; i++) {
+            for (int j = 1; j <= 3; j++) {
+                System.out.println(i + ", " + j);
+            }
+        }
+    }
+}
+// --------------------------------------------------
 // else-if文
 // --------------------------------------------------
 //問題1：点数でランク分けしよう
@@ -54,18 +110,18 @@
 //「会員またはクーポン所持」の場合→「割引対象」
 //どちらもfalse→「対象外」
 
-class Main {
-    public static void main(String[] args) {
-//        boolean isMember = true;
-        boolean isMember = false;
-        boolean hasCoupon = false;
-        if (isMember || hasCoupon) {
-            System.out.println("割引対象");
-        } else {
-            System.out.println("対象外");
-        }
-    }
-}
+//class Main {
+//    public static void main(String[] args) {
+////        boolean isMember = true;
+//        boolean isMember = false;
+//        boolean hasCoupon = false;
+//        if (isMember || hasCoupon) {
+//            System.out.println("割引対象");
+//        } else {
+//            System.out.println("対象外");
+//        }
+//    }
+//}
 
 // --------------------------------------------------
 // if文
