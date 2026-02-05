@@ -1,4 +1,111 @@
 // --------------------------------------------------
+// ネストfor文
+// --------------------------------------------------
+//問題1：2行3列の表を表示しよう
+//        条件
+//二重 for文を使う
+//「(i, j)」の形式で表示する
+//i は 1〜2、j は 1〜3
+
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 2; i++) {
+//            for (int j = 1; j <= 3; j++) {
+//                System.out.print("(" + i + ", " + j + ")");
+//            }
+//            System.out.println();
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：3行4列で「*」を表示しよう
+//        条件
+//print と println を使い分ける
+//一行に4つ「*」を並べる
+//        これを3行表示する
+
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 3; i++) {
+//            for (int j = 1; j <= 4; j++) {
+//                System.out.print("*");
+//            }
+//            System.out.println();
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：1〜3 を3回くりかえして表示しよう
+//        条件
+//外側：3回繰り返す
+//内側：1〜3 を表示する
+//        改行は外側の最後で行う
+
+class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 1; j <= 3; j++) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+}
+
+// --------------------------------------------------
+// while文
+// --------------------------------------------------
+//問題1：whileで1〜3を表示しよう
+//        条件
+//i = 1 から始める
+//while文で1〜3を表示する
+
+//class Main {
+//    public static void main(String[] args) {
+//        int i = 1;
+//        while(i <= 3) {
+//            System.out.println(i);
+//            i++;
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：do-whileでメッセージを3回表示
+//        条件
+//「Hello」を3回表示する
+//do-while を使う
+
+//class Main {
+//    public static void main(String[] args) {
+//        int i = 1;
+//        do {
+//            System.out.println("Hello");
+//            i++;
+//        } while(i <= 3);
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：0になるまでカウントダウン
+//        条件
+//int num = 3;
+//while文で 3, 2, 1, 0 を順に表示する
+//num-- を使ってOK
+
+//class Main {
+//    public static void main(String[] args) {
+//        int num = 3;
+//        while (num >= 0) {
+//            System.out.println(num);
+//            num--;
+//        }
+//    }
+//}
+
+// --------------------------------------------------
 // for文
 // --------------------------------------------------
 //問題1：1〜5を表示しよう
@@ -45,15 +152,16 @@
 
 // --------------------------------------------------
 //早めに終わった人向け：for文の中にfor文がある時の挙動を確認してみよう
-class Main {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 2; i++) {
-            for (int j = 1; j <= 3; j++) {
-                System.out.println(i + ", " + j);
-            }
-        }
-    }
-}
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 2; i++) {
+//            for (int j = 1; j <= 3; j++) {
+//                System.out.println(i + ", " + j);
+//            }
+//        }
+//    }
+//}
+
 // --------------------------------------------------
 // else-if文
 // --------------------------------------------------

@@ -6,10 +6,14 @@ class A0208 {
     public static void main(String[] args) {
 
 //        Variable Definition
+        double a = 10;
+        double b = 3;
+        double division;
 
 //        Processing
+        division = a / b;
 
 //        Output
-        System.out.println();
+        System.out.println(division);
     }
 }
