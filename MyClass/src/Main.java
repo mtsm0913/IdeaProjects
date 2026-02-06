@@ -1,4 +1,79 @@
 // --------------------------------------------------
+// 電卓
+// --------------------------------------------------
+// 問題1：四則演算だけの電卓ロジックを作ろう
+//        条件
+//        int a = 7, b = 3
+// String op = "+" （演算子を変えてテストする）
+// op(+, -, *, /) に応じて計算し、結果を表示
+//        計算結果はresult変数に入れる
+// / のときは割り算の結果を整数で表示
+// if / else if を使うこと
+//
+// ※すべての演算子で正しく計算できることを確認してください。
+
+//class Main {
+//    public static void main(String[] args) {
+//        int a = 7;
+//        int b = 3;
+////        String op = "+";
+////        String op = "-";
+////        String op = "*";
+//        String op = "/";
+//        int result = 0;
+//
+//        if (op.equals("+")) {
+//            result = a + b;
+//        } else if (op.equals("-")) {
+//            result = a - b;
+//        } else if (op.equals("*")) {
+//            result = a * b;
+//        } else if (op.equals("/")) {
+//            result = a / b;
+//        }
+//
+//        System.out.println(result);
+//    }
+//}
+
+// --------------------------------------------------
+// 問題2：0割りチェックを追加した電卓ロジック
+//        条件
+//        int a = 10, b = 0
+// op="/" のとき
+// b が 0 →「0では割れません」
+// それ以外 → 割り算
+//        それ以外の演算子は普通に計算
+// println で結果を出す
+//
+// ※特定条件の時、警告文が出るか確認しましょう。
+
+class Main {
+    public static void main(String[] args) {
+        int a = 10;
+//        int a = 5279;
+        int b = 0;
+//        int b = 2;
+//        String op = "+";
+//        String op = "-";
+//        String op = "*";
+        String op = "/";
+
+        if (op.equals("/") && b == 0) {
+            System.out.println("0では割れません");
+        } else if (op.equals("+")) {
+            System.out.println(a + b);
+        } else if (op.equals("-")) {
+            System.out.println(a - b);
+        } else if (op.equals("*")) {
+            System.out.println(a * b);
+        } else if (op.equals("/")) {
+            System.out.println(a / b);
+        }
+    }
+}
+
+// --------------------------------------------------
 // ネストfor文
 // --------------------------------------------------
 //問題1：2行3列の表を表示しよう
@@ -43,16 +118,16 @@
 //内側：1〜3 を表示する
 //        改行は外側の最後で行う
 
-class Main {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j <= 3; j++) {
-                System.out.print(j);
-            }
-            System.out.println();
-        }
-    }
-}
+//class Main {
+//    public static void main(String[] args) {
+//        for (int i = 1; i <= 3; i++) {
+//            for (int j = 1; j <= 3; j++) {
+//                System.out.print(j);
+//            }
+//            System.out.println();
+//        }
+//    }
+//}
 
 // --------------------------------------------------
 // while文

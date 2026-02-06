@@ -7,12 +7,14 @@
 //        System.out.println(i);
 //}
 
+// カウンタ変数の更新が無いから
+
 class C0414 {
     public static void main(String[] args) {
-
-//        Output
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(i);
+        int i = 0;
+        while (i < 5) {
+                System.out.println(i);
+                i++;
         }
     }
 }
