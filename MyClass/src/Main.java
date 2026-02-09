@@ -1,4 +1,143 @@
 // --------------------------------------------------
+// 配列
+// --------------------------------------------------
+//問題1：3人分の年齢を配列で管理しよう
+//        条件
+//int[] ages = {20, 25, 30}; を使う
+//3つの年齢を順番に表示する
+
+//class Main {
+//    public static void main(String[] args) {
+//        int[] ages = {20, 25, 30};
+//        System.out.println(ages[0]);
+//        System.out.println(ages[1]);
+//        System.out.println(ages[2]);
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：配列の長さを表示しよう
+//        条件
+//好きな文字列3つを配列に入れる
+//配列名.length を表示する
+
+//class Main {
+//    public static void main(String[] args) {
+//        String[] languages = {"Japanese", "English", "Italian"};
+//        System.out.println(languages.length);
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：配列の値を書き換えてみよう
+//        条件
+//int[] points = {50, 60, 70};
+//2つ目（インデックス1）の値を 100 に変更
+//        その値を表示する
+
+class Main {
+    public static void main(String[] args) {
+        int[] points = {50, 60, 70};
+        points[1] = 100;
+        System.out.println(points[1]);
+    }
+}
+
+// --------------------------------------------------
+// 電卓（標準入力受取）
+// --------------------------------------------------
+//問題1：2つの数を入力して足し算する
+//        条件
+//Scannerを使う
+//2つの数を nextInt で入力
+//        合計を表示
+//※実行ログに数字を1回入力しエンター、もう一度数字を入力しエンターを押す。
+//足した数が表示されるか確認する。
+
+//import java.util.Scanner;
+//class Main {
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        int a = sc.nextInt();
+//        int b = sc.nextInt();
+//
+//        System.out.println(a + b);
+//
+//        sc.close();
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：演算子を入力して計算する電卓
+//        条件
+//a, b を nextInt
+//演算子 op を next
+//  ＋ と - のみ対応
+//if で分岐
+//※実行ログに数字を1回入力→演算子を1回入力→数字を1回入力し、
+//演算子によって計算された数が表示されるか確認する。
+
+//import java.util.Scanner;
+//class Main {
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        int a = sc.nextInt();
+//        String op = sc.next();
+//        int b = sc.nextInt();
+//
+//        int result = 0;
+//
+//        if (op.equals("+")) {
+//            result = a + b;
+//        } else if (op.equals("-")) {
+//            result = a - b;
+//        }
+//
+//        System.out.println(result);
+//
+//        sc.close();
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：四則演算＋0割りチェック付き電卓
+//        条件
+//        a, b, op を Scanner で入力
+//        ＋- * / をすべて扱う
+//        / のとき b==0 ならエラーメッセージ
+//        それ以外は計算結果を表示
+
+//import java.util.Scanner;
+//class Main {
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//
+//        int a = sc.nextInt();
+//        String op = sc.next();
+//        int b = sc.nextInt();
+//
+//        if (op.equals("/") && b == 0) {
+//            System.out.println("0では割れません");
+//        } else if (op.equals("+")) {
+//            System.out.println(a + b);
+//        } else if (op.equals("-")) {
+//            System.out.println(a - b);
+//        } else if (op.equals("*")) {
+//            System.out.println(a * b);
+//        } else if (op.equals("/")) {
+//            System.out.println(a / b);
+//        }
+//
+//        sc.close();
+//    }
+//}
+
+// --------------------------------------------------
 // 電卓
 // --------------------------------------------------
 // 問題1：四則演算だけの電卓ロジックを作ろう
@@ -48,30 +187,30 @@
 //
 // ※特定条件の時、警告文が出るか確認しましょう。
 
-class Main {
-    public static void main(String[] args) {
-        int a = 10;
-//        int a = 5279;
-        int b = 0;
-//        int b = 2;
-//        String op = "+";
-//        String op = "-";
-//        String op = "*";
-        String op = "/";
-
-        if (op.equals("/") && b == 0) {
-            System.out.println("0では割れません");
-        } else if (op.equals("+")) {
-            System.out.println(a + b);
-        } else if (op.equals("-")) {
-            System.out.println(a - b);
-        } else if (op.equals("*")) {
-            System.out.println(a * b);
-        } else if (op.equals("/")) {
-            System.out.println(a / b);
-        }
-    }
-}
+//class Main {
+//    public static void main(String[] args) {
+//        int a = 10;
+////        int a = 5279;
+//        int b = 0;
+////        int b = 2;
+////        String op = "+";
+////        String op = "-";
+////        String op = "*";
+//        String op = "/";
+//
+//        if (op.equals("/") && b == 0) {
+//            System.out.println("0では割れません");
+//        } else if (op.equals("+")) {
+//            System.out.println(a + b);
+//        } else if (op.equals("-")) {
+//            System.out.println(a - b);
+//        } else if (op.equals("*")) {
+//            System.out.println(a * b);
+//        } else if (op.equals("/")) {
+//            System.out.println(a / b);
+//        }
+//    }
+//}
 
 // --------------------------------------------------
 // ネストfor文
