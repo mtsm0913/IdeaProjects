@@ -1,4 +1,119 @@
 // --------------------------------------------------
+// ArrayList
+// --------------------------------------------------
+//問題1：名前リストを作ろう
+//        条件
+//ArrayList を作る
+//"Apple", "Banana" の順に追加
+//2つを順番に表示する
+
+//import java.util.ArrayList;
+//class Main {
+//    public static void main(String[] args) {
+//        ArrayList<String> fruits = new ArrayList<>();
+//        fruits.add("Apple");
+//        fruits.add("Banana");
+//        System.out.println(fruits.get(0));
+//        System.out.println(fruits.get(1));
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：要素数を表示しよう
+//        条件
+//        ArrayList を作る
+//        10, 20, 30 を追加
+//        size() を使って要素数を表示する
+
+//import java.util.ArrayList;
+//class Main {
+//    public static void main(String[] args) {
+//
+//        ArrayList<Integer> numbers = new ArrayList<>();
+//
+//        numbers.add(10);
+//        numbers.add(20);
+//        numbers.add(30);
+//
+//        System.out.println(numbers.size());
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：削除してみよう
+//        条件
+//        ArrayList を作成
+//        "A", "B", "C" を追加
+//        "B"（インデックス1）を削除
+//        最後にリストを2つ表示する
+
+import java.util.ArrayList;
+class Main {
+    public static void main(String[] args) {
+        ArrayList<String> alphabets = new ArrayList<>();
+        alphabets.add("A");
+        alphabets.add("B");
+        alphabets.add("C");
+        alphabets.remove(1);
+//        System.out.println(alphabets.size());
+        System.out.println(alphabets.get(0));
+        System.out.println(alphabets.get(1));
+//        System.out.println(alphabets.get(2));
+//        IndexOutOfBoundsException
+    }
+}
+
+// --------------------------------------------------
+// for-each
+// --------------------------------------------------
+//問題1：配列の中身を全部表示しよう
+//        条件
+//int[] nums = {1, 2, 3, 4};
+//for-eachで順番に表示する
+
+//class Main {
+//    public static void main(String[] args) {
+//        int[] nums = {1, 2, 3, 4};
+//        for (int n : nums) {
+//            System.out.println(n);
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：文字列配列をfor-eachで回そう
+//        条件
+//"Apple", "Banana", "Orange" の3つを String 配列に入れる
+//for-eachで1つずつ表示する
+
+//class Main {
+//    public static void main(String[] args) {
+//        String[] fruits = {"Apple", "Banana", "Orange"};
+//        for (String f : fruits) {
+//            System.out.println(f);
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：合計を計算しよう
+//        条件
+//int[] scores = {10, 20, 30};
+//for-eachで合計を計算して表示する
+//        インデックスは使わない
+
+//class Main {
+//    public static void main(String[] args) {
+//        int[] scores = {10, 20, 30};
+//        int total = 0;
+//        for (int s : scores) {
+//            total += s;
+//        }
+//        System.out.println(total);
+//    }
+//}
+
+// --------------------------------------------------
 // 配列
 // --------------------------------------------------
 //問題1：3人分の年齢を配列で管理しよう
@@ -35,13 +150,13 @@
 //2つ目（インデックス1）の値を 100 に変更
 //        その値を表示する
 
-class Main {
-    public static void main(String[] args) {
-        int[] points = {50, 60, 70};
-        points[1] = 100;
-        System.out.println(points[1]);
-    }
-}
+//class Main {
+//    public static void main(String[] args) {
+//        int[] points = {50, 60, 70};
+//        points[1] = 100;
+//        System.out.println(points[1]);
+//    }
+//}
 
 // --------------------------------------------------
 // 電卓（標準入力受取）
