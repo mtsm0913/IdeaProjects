@@ -1,11 +1,12 @@
-//import java.util.ArrayList;
-//class temp {
-//    public static void main(String[] args) {
-//        ArrayList names = new ArrayList<>();
-//        names.add("Sara");
-//        names.add("Bob");
-//        names.add("Steve");
-//        var name = names.get(0);
-//        System.out.println(name);
-//    }
-//}
+class Temp {
+    public static void greet() {
+        System.out.println("こんにちは");
+    }
+    public static int add(int a, int b) {
+        return a + b;
+    }
+    public static void main(String[] args) {
+        greet();
+        System.out.println("計算結果：" + add(1, 2));
+    }
+}

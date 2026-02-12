@@ -6,7 +6,10 @@
 class D14070307 {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4};
-        for (num)
-        System.out.println();
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                System.out.println(num);
+            }
+        }
     }
 }
