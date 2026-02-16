@@ -11,8 +11,25 @@
 //会社名: TechCorp
 
 class Company {
-    String cName;
+    String companyName;
+    Company(String companyName) {
+        this.companyName = companyName;
+    }
 }
 class Employee {
+    String employeeName;
+    Company companyName;
+    Employee(String employeeName, Company companyName) {
+        this.employeeName = employeeName;
+        this.companyName = companyName;
+    }
+}
 
+class E1501 {
+    public static void main(String[] args) {
+        Company c = new Company("TechCorp");
+        Employee e = new Employee("Tanaka", c);
+        System.out.println("社員名：" + e.employeeName);
+        System.out.println("会社名：" + c.companyName);
+    }
 }
