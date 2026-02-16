@@ -1,4 +1,121 @@
 // --------------------------------------------------
+// カプセル化
+// --------------------------------------------------
+//問題1：Book クラスをカプセル化しよう
+//条件
+//フィールド：title（String）
+//フィールドは private
+//getter と setter を作る
+//main で値をセット → 表示
+
+//class Book {
+//    private String title;
+//    public String getTitle() {
+//        return title;
+//    }
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Book b = new Book();
+//        b.setTitle("生成AI入門");
+//        System.out.println(b.getTitle());
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：Person の年齢にチェックを入れよう
+//条件
+//フィールド：age（int, private）
+//setter で「0以上のときだけセット」
+//main で age を設定して表示
+
+//class Person {
+//    private int age;
+//    public void setAge(int age) {
+//        if (age >= 0) {
+//            this.age = age;
+//        } else {
+//            System.out.println("年齢に不正な値が入力されました：" + age);
+//        }
+//    }
+//    public int getAge() {
+//        return age;
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Person p1 = new Person();
+//        Person p2 = new Person();
+//        Person p3 = new Person();
+//
+//        p1.setAge(1);
+//        p2.setAge(0);
+//        p3.setAge(-1);
+//
+//        System.out.println("p1: " + p1.getAge());
+//        System.out.println("p2: " + p2.getAge());
+//        System.out.println("p3: " + p3.getAge());
+//    }
+//}
+
+//問題3：Product クラスで価格を守る
+//条件
+//フィールド：name（String）, price（int）
+//どちらも private
+//setter で price が 0 以上のみ許可
+//main で設定して両方表示
+
+class Product {
+    private String name;
+    private int price;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setPrice(int price) {
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            System.out.println(name + "の金額に不正な値が入力されました：" + price);
+        }
+    }
+    public String getName() {
+        return name;
+    }
+    public int getPrice() {
+        return price;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Product p1 = new Product();
+        Product p2 = new Product();
+        Product p3 = new Product();
+
+        p1.setName("apple");
+        p1.setPrice(100);
+
+        p2.setName("orange");
+        p2.setPrice(0);
+
+        p3.setName("melon");
+        p3.setPrice(-100);
+
+        System.out.println("--------------------------------------------------");
+
+        System.out.println(p1.getName());
+        System.out.println(p1.getPrice());
+        System.out.println(p2.getName());
+        System.out.println(p2.getPrice());
+        System.out.println(p3.getName());
+        System.out.println(p3.getPrice());
+    }
+}
+
+// --------------------------------------------------
 // クラスの組み合わせ
 // --------------------------------------------------
 //問題1：著者と本を組み合わせよう
@@ -70,30 +187,30 @@
 //main で Item → Order の順に作る
 //商品名と金額を表示
 
-class Item {
-    String name;
-    int price;
-    Item(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
-}
-class Order {
-    Item item;
-    int quantity;
-    Order(Item item, int quantity) {
-        this.item = item;
-        this.quantity = quantity;
-    }
-}
-class Main {
-    public static void main(String[] args) {
-        Item i = new Item("PC", 50000);
-        Order o = new Order(i, 10);
-        System.out.println(i.name);
-        System.out.println(i.price * o.quantity);
-    }
-}
+//class Item {
+//    String name;
+//    int price;
+//    Item(String name, int price) {
+//        this.name = name;
+//        this.price = price;
+//    }
+//}
+//class Order {
+//    Item item;
+//    int quantity;
+//    Order(Item item, int quantity) {
+//        this.item = item;
+//        this.quantity = quantity;
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Item i = new Item("PC", 50000);
+//        Order o = new Order(i, 10);
+//        System.out.println(i.name);
+//        System.out.println(i.price * o.quantity);
+//    }
+//}
 
 // --------------------------------------------------
 // コンストラクタ

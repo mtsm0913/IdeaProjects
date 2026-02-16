@@ -12,15 +12,15 @@
 //    }
 //}
 
-class Person {
-    String name;
-    Person(String name) {
-        this.name = name;
-    }
-}
-class E1305 {
-    public static void main(String[] args) {
-        Person p = new Person("mtsm");
-        System.out.println(p.name);
-    }
-}
+//class Person {
+//    String name;
+//    Person(String name) {
+//        this.name = name;
+//    }
+//}
+//class E1305 {
+//    public static void main(String[] args) {
+//        Person p = new Person("mtsm");
+//        System.out.println(p.name);
+//    }
+//}
