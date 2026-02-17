@@ -80,13 +80,29 @@ class CartItem {
 class Cart {
 
 //    フィールド
-    ArrayList<CartItem> items = new ArrayList<>();
+//    ArrayList<CartItem> items = new ArrayList<>();
+//    private に修正
+    private ArrayList<CartItem> items = new ArrayList<>();
 
 //    メソッド
     public void addItem(Product p, int quantity) {
-//        items.add(p);
-//        items.add(quantity);
+        CartItem ci = new CartItem(p, quantity);
 
+//        ★ ci を items に追加
+        items.add(ci);
+    }
+
+    public void showAll() {
+        for (CartItem ci : items) {
+            ci.show();
+        }
+    }
+    public int getTotal() {
+        int total = 0;
+        for (CartItem ci : items) {
+            total += ci.getSubtotal();
+        }
+        return total;
     }
 }
 
@@ -95,6 +111,14 @@ class Cart {
 // --------------------------------------------------
 class E1603 {
     public static void main(String[] args) {
-
+        Product p1 = new Product("Pen", 120);
+        Product p2 = new Product("Notebook", 200);
+        Product p3 = new Product("clear file", 110);
+        Cart cart = new Cart();
+        cart.addItem(p1, 1);
+        cart.addItem(p2, 2);
+        cart.addItem(p3, 3);
+        cart.showAll();
+        System.out.println("合計金額：" + cart.getTotal());
     }
 }
