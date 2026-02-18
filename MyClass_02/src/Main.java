@@ -1,4 +1,170 @@
 // --------------------------------------------------
+// オーバーライド
+// --------------------------------------------------
+//問題1：Animal → Dog をオーバーライド
+//条件
+//Animal：speak()（「動物が鳴きます」）
+//Dog：Animal を継承し、speak() を上書きして「ワン！」
+//main で speak() を呼ぶ
+
+//class Animal {
+//    void speak() {
+//        System.out.println("動物が鳴きます");
+//    }
+//}
+//class Dog extends Animal {
+//    @Override
+//    void speak() {
+//        System.out.println("ワン！");
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Animal a = new Animal();
+//        Dog d = new Dog();
+//        a.speak();
+//        d.speak();
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：Person → Student の showInfo 上書き
+//条件
+//Person：name と showInfo（「名前：◯◯」）
+//Student：Person を継承し、showInfo を上書きして
+// 「学生：◯◯」と表示
+//main で Student の showInfo を呼ぶ
+
+//class Person {
+//    String name = "Ohta";
+//    void showInfo() {
+//        System.out.println("名前：" + name);
+//    }
+//}
+//class Student extends Person {
+//    @Override
+//    void showInfo() {
+//        System.out.println("学生：" + name);
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Student s = new Student();
+//        s.showInfo();
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：Shape の draw() を上書き
+//条件
+//Shape：draw()（「図形を描きます」）
+//Circle：Shape を継承し、draw() を上書きして「円を描きます」
+//main で Circle の draw() を呼ぶ
+
+class Shape {
+    void draw() {
+        System.out.println("図形を描きます");
+    }
+}
+class Circle extends Shape {
+    void draw() {
+        System.out.println("円を描きます");
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        c.draw();
+    }
+}
+
+// --------------------------------------------------
+// 継承
+// --------------------------------------------------
+//問題1：Animal を継承した Dog クラスを作ろう
+//条件
+//Animal：eat() を持つ
+//Dog：Animal を継承
+//Dog に bark() を追加
+//main で両方呼び出す
+
+//class Animal {
+//    void eat() {
+//        System.out.println("食べる");
+//    }
+//}
+//class Dog extends Animal {
+//    void bark() {
+//        System.out.println("吠える");
+//    }
+//}
+//
+//class Main {
+//    public static void main(String[] args) {
+//        Animal a = new Animal();
+//        Dog d = new Dog();
+//        a.eat();
+//        d.bark();
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：Person を継承した Student
+//        条件
+//Person：name を持ち、showName() を持つ
+//Student：Person を継承し、study() を追加
+//main で両方のメソッドを呼ぶ
+
+//class Person {
+//    private String name = "Ohta";
+//    void showName() {
+//        System.out.println(name);
+//    }
+////    Person(String name) {
+////        this.name = name;
+////    }
+//}
+//class Student extends Person {
+//    void study() {
+//        System.out.println("勉強する");
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Person p = new Person();
+//        Student s = new Student();
+//        p.showName();
+//        s.study();
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：Vehicle → Car の継承
+//条件
+//Vehicle に run()
+//Car は Vehicle を継承し、brand を持つ
+//main で brand を設定し、run() を呼ぶ
+
+//class Vehicle {
+//    void run() {
+//        System.out.println("走る");
+//    }
+//}
+//class Car extends Vehicle {
+//    String brand;
+//    Car(String brand) {
+//        this.brand = brand;
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Car c = new Car("TOYOTA");
+//        c.run();
+//        System.out.println(c.brand);
+//    }
+//}
+
+// --------------------------------------------------
 // カプセル化
 // --------------------------------------------------
 //問題1：Book クラスをカプセル化しよう
@@ -68,52 +234,52 @@
 //setter で price が 0 以上のみ許可
 //main で設定して両方表示
 
-class Product {
-    private String name;
-    private int price;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setPrice(int price) {
-        if (price >= 0) {
-            this.price = price;
-        } else {
-            System.out.println(name + "の金額に不正な値が入力されました：" + price);
-        }
-    }
-    public String getName() {
-        return name;
-    }
-    public int getPrice() {
-        return price;
-    }
-}
-class Main {
-    public static void main(String[] args) {
-        Product p1 = new Product();
-        Product p2 = new Product();
-        Product p3 = new Product();
-
-        p1.setName("apple");
-        p1.setPrice(100);
-
-        p2.setName("orange");
-        p2.setPrice(0);
-
-        p3.setName("melon");
-        p3.setPrice(-100);
-
-        System.out.println("--------------------------------------------------");
-
-        System.out.println(p1.getName());
-        System.out.println(p1.getPrice());
-        System.out.println(p2.getName());
-        System.out.println(p2.getPrice());
-        System.out.println(p3.getName());
-        System.out.println(p3.getPrice());
-    }
-}
+//class Product {
+//    private String name;
+//    private int price;
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//    public void setPrice(int price) {
+//        if (price >= 0) {
+//            this.price = price;
+//        } else {
+//            System.out.println(name + "の金額に不正な値が入力されました：" + price);
+//        }
+//    }
+//    public String getName() {
+//        return name;
+//    }
+//    public int getPrice() {
+//        return price;
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Product p1 = new Product();
+//        Product p2 = new Product();
+//        Product p3 = new Product();
+//
+//        p1.setName("apple");
+//        p1.setPrice(100);
+//
+//        p2.setName("orange");
+//        p2.setPrice(0);
+//
+//        p3.setName("melon");
+//        p3.setPrice(-100);
+//
+//        System.out.println("--------------------------------------------------");
+//
+//        System.out.println(p1.getName());
+//        System.out.println(p1.getPrice());
+//        System.out.println(p2.getName());
+//        System.out.println(p2.getPrice());
+//        System.out.println(p3.getName());
+//        System.out.println(p3.getPrice());
+//    }
+//}
 
 // --------------------------------------------------
 // クラスの組み合わせ
