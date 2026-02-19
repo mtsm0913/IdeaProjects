@@ -1,4 +1,215 @@
 // --------------------------------------------------
+// 例外を投げる・作る
+// --------------------------------------------------
+//問題1：年齢チェックで例外を投げよう
+//        条件
+//メソッド名：checkAge
+//引数：int age
+//age が 0 未満なら throw new Exception("不正な年齢")
+//        throws Exception を付ける
+//main で try-catch を書く
+
+class Main {
+    public static void checkAge(int age) throws Exception {
+        if (age < 0) {
+            throw new Exception("不正な年齢");
+        }
+    }
+    public static void main(String[] args) {
+        try {
+            checkAge(-1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+// --------------------------------------------------
+//問題2：文字列が空なら例外にする
+//        条件
+//メソッド名：checkName
+//空文字なら例外を throw
+//        throws Exception をつける
+//main で呼び出して catch
+
+//class Main {
+//    public static void checkName(String name) throws Exception {
+//        if (name.equals("")) {
+//            throw new Exception("名前が不正です");
+//        }
+//    }
+//    public static void main(String[] args) {
+//        try {
+//            checkName("");
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：自作例外を作って使おう
+//        条件
+//クラス名：InvalidPriceException
+//price が 0 未満なら throw
+//メッセージ：「価格が不正です」
+//main で例外を受け取って表示
+
+//class InvalidPriceException extends Exception {
+//    InvalidPriceException(String message) {
+//        super(message);
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        try {
+//            int price = -1;
+//            if (price < 0) {
+//                throw new InvalidPriceException("価格が不正です");
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+// ファイル読み書き
+// --------------------------------------------------
+//問題1：ファイルに文字を書いてみよう
+//
+//        条件
+//ファイル名：hello.txt
+//内容：「こんにちはファイル」
+//        Files.writeString() を使い、任意の文字列を書き込む。
+//        try-catch 必須。例外が発生したら、書き込みに失敗したと表示する。
+//エラーが出なければ書き込み成功
+
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//
+//class Main {
+//    public static void main(String[] args) {
+//        try {
+//            Path path = Paths.get("hello.txt");
+//            Files.writeString(path, "こんにちはファイル");
+//        } catch (Exception e) {
+//            System.out.println("書き込みに失敗した");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：読み込んで確認しよう
+//
+//        条件
+//ファイル名：hello.txt
+//中身を読み取って println する
+//try-catch を使う
+
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//
+//class Main {
+//    public static void main(String[] args) {
+//        try {
+//            Path path = Paths.get("hello.txt");
+//            String text = Files.readString(path);
+//            System.out.println(text);
+//        } catch (Exception e) {
+//            System.out.println("読み込みに失敗した");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：書いて → 読む を一連でやる
+//条件
+//ファイル名：data.txt
+//内容：「Java Study」
+//書き込み → 読み込み → 表示
+//全体を try-catch で囲む
+
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//
+//class Main {
+//    public static void main(String[] args) {
+//        try {
+//            Path path = Paths.get("data.txt");
+//            Files.writeString(path, "Java Study");
+//            String text = Files.readString(path);
+//            System.out.println(text);
+//        } catch (Exception e) {
+//            System.out.println("失敗");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+// 例外処理
+// --------------------------------------------------
+//問題1：0で割る処理を try-catch で守ろう
+//        条件
+//10 ÷ 0 を計算するコードを書く
+//try-catch で囲む
+//catch では「計算できません」と表示
+
+//import java.util.logging.Logger;
+//class Main {
+//    private static final Logger logger = Logger.getLogger(Main.class.getName());
+//    public static void main(String[] args) {
+//        try {
+//            int a = 10 / 0;
+//        } catch (Exception e) {
+//            System.out.println("計算できません");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題2：配列の範囲外アクセスをキャッチ
+//        条件
+//int 配列 {1, 2, 3}
+//インデックス 5 を読み込む（例外になる）
+//        try-catch で囲む
+
+//import java.util.logging.Logger;
+//class Main {
+//    private static final Logger logger = Logger.getLogger(Main.class.getName());
+//    public static void main(String[] args) {
+//        try {
+//            int[] array = {1, 2, 3};
+//            System.out.println(array[5]);
+//        } catch (Exception e) {
+//            System.out.println("！！！配列範囲外にアクセス！！！");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
+//問題3：文字列を数値に変換してみよう
+//        条件
+//"abc" を Integer.parseInt() に渡す（例外になる）
+//        try-catch で処理を守る
+//catch は「数値に変換できません」と表示
+
+//import java.util.logging.Logger;
+//class Main {
+//    private static final Logger logger = Logger.getLogger(Main.class.getName());
+//    public static void main(String[] args) {
+//        try {
+//            int num = Integer.parseInt("abc");
+//        } catch (Exception e) {
+//            System.out.println("数値に変換できません");
+//        }
+//    }
+//}
+
+// --------------------------------------------------
 // オーバーライド
 // --------------------------------------------------
 //問題1：Animal → Dog をオーバーライド
@@ -61,22 +272,22 @@
 //Circle：Shape を継承し、draw() を上書きして「円を描きます」
 //main で Circle の draw() を呼ぶ
 
-class Shape {
-    void draw() {
-        System.out.println("図形を描きます");
-    }
-}
-class Circle extends Shape {
-    void draw() {
-        System.out.println("円を描きます");
-    }
-}
-class Main {
-    public static void main(String[] args) {
-        Circle c = new Circle();
-        c.draw();
-    }
-}
+//class Shape {
+//    void draw() {
+//        System.out.println("図形を描きます");
+//    }
+//}
+//class Circle extends Shape {
+//    void draw() {
+//        System.out.println("円を描きます");
+//    }
+//}
+//class Main {
+//    public static void main(String[] args) {
+//        Circle c = new Circle();
+//        c.draw();
+//    }
+//}
 
 // --------------------------------------------------
 // 継承
