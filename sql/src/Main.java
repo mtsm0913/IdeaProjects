@@ -1,15 +1,6 @@
 // --------------------------------------------------
-// 5. 練習問題
+// 4. 全件出力
 // --------------------------------------------------
-//問題1
-//books テーブルから price が 3000円以上の本だけを表示せよ。
-//条件：
-//        • PreparedStatement を使うこと
-//• ? を使うこと ※分からなければ、本ドキュメントの「PreparedStatement専用の書き方・
-//        「?」について」を参照
-//• title と price を表示すること
-//• try-catch 必須
-
 import java.sql.*;
 
 class Main {
@@ -19,12 +10,27 @@ class Main {
             Connection conn = DriverManager.getConnection(
                     "jdbc:sqlite:book.db"
             );
-            String sql = "SELECT * FROM books WHERE price >= ?";
+
+            Statement stmt = conn.createStatement();
+            String sql = "SELECT * FROM books";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, 3000);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getString("title") + " / " + rs.getInt("price"));
+                System.out.println(
+                        rs.getString("title")
+                        + " | "
+                        + rs.getString("author")
+                        + " | "
+                        + rs.getString("category")
+                        + " | "
+                        + rs.getInt("price")
+                        + " | "
+                        + rs.getInt("stock")
+                        + " | "
+                        + rs.getInt("published_year")
+                        + " | "
+                        + rs.getDouble("rating")
+                );
             }
             conn.close();
         } catch (Exception e) {
@@ -32,47 +38,6 @@ class Main {
         }
     }
 }
-
-// --------------------------------------------------
-// 4. 全件出力
-// --------------------------------------------------
-//import java.sql.*;
-//
-//class Main {
-//    public static void main(String[] args) {
-//
-//        try {
-//            Connection conn = DriverManager.getConnection(
-//                    "jdbc:sqlite:book.db"
-//            );
-//
-//            Statement stmt = conn.createStatement();
-//            String sql = "SELECT * FROM books";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                System.out.println(
-//                        rs.getString("title")
-//                        + " | "
-//                        + rs.getString("author")
-//                        + " | "
-//                        + rs.getString("category")
-//                        + " | "
-//                        + rs.getInt("price")
-//                        + " | "
-//                        + rs.getInt("stock")
-//                        + " | "
-//                        + rs.getInt("published_year")
-//                        + " | "
-//                        + rs.getDouble("rating")
-//                );
-//            }
-//            conn.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//}
 
 // --------------------------------------------------
 // 3. サンプルデータ存在確認
