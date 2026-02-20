@@ -22,103 +22,103 @@
 //◦ showAll() で中身を表示
 //◦ 最後に合計金額も表示
 
-import java.util.ArrayList;
-
-// --------------------------------------------------
-// 商品
-// --------------------------------------------------
-class Product {
-
-//    フィールド
-    private String name;
-    private int price;
-
-//    コンストラクタ
-    Product(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
-
-//    getter
-    public String getName() {
-        return name;
-    }
-    public int getPrice() {
-        return price;
-    }
-}
-
-// --------------------------------------------------
-// カート内の１行分
-// --------------------------------------------------
-class CartItem {
-
-//    フィールド
-    private Product product;
-    private int quantity;
-
-//    コンストラクタ
-    CartItem(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
-    }
-
-//    小計を返す
-    public int getSubtotal() {
-        return product.getPrice() * quantity;
-    }
-
-//    商品名・数量・小計を表示
-    public void show() {
-        System.out.println("商品名：" + product.getName() + " / 数量：" + quantity + " / 小計：" + getSubtotal());
-    }
-}
-
-// --------------------------------------------------
-// カート全体
-// --------------------------------------------------
-class Cart {
-
-//    フィールド
-//    ArrayList<CartItem> items = new ArrayList<>();
-//    private に修正
-    private ArrayList<CartItem> items = new ArrayList<>();
-
-//    メソッド
-    public void addItem(Product p, int quantity) {
-        CartItem ci = new CartItem(p, quantity);
-
-//        ★ ci を items に追加
-        items.add(ci);
-    }
-
-    public void showAll() {
-        for (CartItem ci : items) {
-            ci.show();
-        }
-    }
-    public int getTotal() {
-        int total = 0;
-        for (CartItem ci : items) {
-            total += ci.getSubtotal();
-        }
-        return total;
-    }
-}
-
-// --------------------------------------------------
-// Mainクラス
-// --------------------------------------------------
-class E1603 {
-    public static void main(String[] args) {
-        Product p1 = new Product("Pen", 120);
-        Product p2 = new Product("Notebook", 200);
-        Product p3 = new Product("clear file", 110);
-        Cart cart = new Cart();
-        cart.addItem(p1, 1);
-        cart.addItem(p2, 2);
-        cart.addItem(p3, 3);
-        cart.showAll();
-        System.out.println("合計金額：" + cart.getTotal());
-    }
-}
+//import java.util.ArrayList;
+//
+//// --------------------------------------------------
+//// 商品
+//// --------------------------------------------------
+//class Product {
+//
+////    フィールド
+//    private String name;
+//    private int price;
+//
+////    コンストラクタ
+//    Product(String name, int price) {
+//        this.name = name;
+//        this.price = price;
+//    }
+//
+////    getter
+//    public String getName() {
+//        return name;
+//    }
+//    public int getPrice() {
+//        return price;
+//    }
+//}
+//
+//// --------------------------------------------------
+//// カート内の１行分
+//// --------------------------------------------------
+//class CartItem {
+//
+////    フィールド
+//    private Product product;
+//    private int quantity;
+//
+////    コンストラクタ
+//    CartItem(Product product, int quantity) {
+//        this.product = product;
+//        this.quantity = quantity;
+//    }
+//
+////    小計を返す
+//    public int getSubtotal() {
+//        return product.getPrice() * quantity;
+//    }
+//
+////    商品名・数量・小計を表示
+//    public void show() {
+//        System.out.println("商品名：" + product.getName() + " / 数量：" + quantity + " / 小計：" + getSubtotal());
+//    }
+//}
+//
+//// --------------------------------------------------
+//// カート全体
+//// --------------------------------------------------
+//class Cart {
+//
+////    フィールド
+////    ArrayList<CartItem> items = new ArrayList<>();
+////    private に修正
+//    private ArrayList<CartItem> items = new ArrayList<>();
+//
+////    メソッド
+//    public void addItem(Product p, int quantity) {
+//        CartItem ci = new CartItem(p, quantity);
+//
+////        ★ ci を items に追加
+//        items.add(ci);
+//    }
+//
+//    public void showAll() {
+//        for (CartItem ci : items) {
+//            ci.show();
+//        }
+//    }
+//    public int getTotal() {
+//        int total = 0;
+//        for (CartItem ci : items) {
+//            total += ci.getSubtotal();
+//        }
+//        return total;
+//    }
+//}
+//
+//// --------------------------------------------------
+//// Mainクラス
+//// --------------------------------------------------
+//class E1603 {
+//    public static void main(String[] args) {
+//        Product p1 = new Product("Pen", 120);
+//        Product p2 = new Product("Notebook", 200);
+//        Product p3 = new Product("clear file", 110);
+//        Cart cart = new Cart();
+//        cart.addItem(p1, 1);
+//        cart.addItem(p2, 2);
+//        cart.addItem(p3, 3);
+//        cart.showAll();
+//        System.out.println("合計金額：" + cart.getTotal());
+//    }
+//}

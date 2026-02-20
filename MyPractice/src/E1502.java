@@ -13,32 +13,32 @@
 //合計金額: 1600
 //        ※ 合計は price × quantity で計算すること
 
-class Food {
-    String name;
-    int price;
-    Food(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
-}
-class Order {
-    Food food;
-    int quantity;
-    Order(Food food, int quantity) {
-        this.food = food;
-        this.quantity = quantity;
-    }
-}
-class E1502 {
-    public static void main(String[] args) {
-        Food f = new Food("Ramen", 800);
-        Order o = new Order(f, 2);
-
-        int totalPrice = f.price * o.quantity;
-
-        System.out.println("料理名: " + f.name);
-        System.out.println("単価: " + f.price);
-        System.out.println("数量: " + o.quantity);
-        System.out.println("合計金額: " + totalPrice);
-    }
-}
+//class Food {
+//    String name;
+//    int price;
+//    Food(String name, int price) {
+//        this.name = name;
+//        this.price = price;
+//    }
+//}
+//class Order {
+//    Food food;
+//    int quantity;
+//    Order(Food food, int quantity) {
+//        this.food = food;
+//        this.quantity = quantity;
+//    }
+//}
+//class E1502 {
+//    public static void main(String[] args) {
+//        Food f = new Food("Ramen", 800);
+//        Order o = new Order(f, 2);
+//
+//        int totalPrice = f.price * o.quantity;
+//
+//        System.out.println("料理名: " + f.name);
+//        System.out.println("単価: " + f.price);
+//        System.out.println("数量: " + o.quantity);
+//        System.out.println("合計金額: " + totalPrice);
+//    }
+//}
