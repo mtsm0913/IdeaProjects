@@ -1,7 +1,15 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.function.Supplier;
 
 public class TodoDAO {
+
+    @FunctionalInterface
+    interface ConnectionProvider {
+        Connection get() throws SQLException;
+    }
 
     // タスクを新規登録する
     public void insert(String title, String memo, int done, String createdAt) throws SQLException {
@@ -11,7 +19,7 @@ public class TodoDAO {
         // TODO: プレースホルダーに値をセットする（setString, setInt）
         // TODO: executeUpdate() を実行する
 
-        try (Connection conn = DBManager.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // TODO: 1番目の ? に title をセット
@@ -38,7 +46,7 @@ public class TodoDAO {
 //        新しいタスク順に並べるためにDESCとしている。
         String sql = "SELECT * FROM todos ORDER BY id DESC";
 
-        try (Connection conn = DBManager.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -79,7 +87,7 @@ public class TodoDAO {
     public void update(int id, String title, String memo, int done) throws SQLException {
         String sql = "UPDATE todos SET title = ?, memo = ?, done = ? WHERE id = ?";
 
-        try (Connection conn = DBManager.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // TODO: プレースホルダー(?)に値をセット
@@ -96,7 +104,7 @@ public class TodoDAO {
     public void delete(int id) throws SQLException {
         String sql = "DELETE FROM todos WHERE id = ?";
 
-        try (Connection conn = DBManager.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // TODO: idをセット
@@ -111,7 +119,7 @@ public class TodoDAO {
         ArrayList<Todo> list = new ArrayList<>();
         String sql = "SELECT * FROM todos WHERE title LIKE ? OR memo LIKE ? ORDER BY id DESC";
 
-        try (Connection conn = DBManager.getConnection();
+        try (Connection conn = getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // TODO: キーワードを % で囲む
@@ -135,5 +143,41 @@ public class TodoDAO {
         }
 
         return list;
+    }
+
+    // 未完了タスクのみを取得（Stream API使用）
+    public List<Todo> findIncomplete() throws SQLException {
+        ArrayList<Todo> allTodos = findAll();
+
+        // TODO: Stream APIで未完了タスクのみを返す
+        return allTodos.stream()
+                // TODO: filter で done == 0 のものだけを抽出
+                .filter(todo -> todo.getDone() == 0)
+                .collect(Collectors.toList());
+    }
+
+    // タスク名にキーワードが含まれる未完了タスクを取得
+    public List<Todo> findIncompleteByKeyword(String keyword) throws SQLException {
+        ArrayList<Todo> allTodos = findAll();
+
+        // TODO: 未完了 かつ メモにキーワードが含まれるものを抽出
+        return allTodos.stream()
+                // TODO: filter で2つの条件を満たすものを抽出
+                .filter(todo -> todo.getDone() == 0 && todo.getMemo().contains(keyword))
+                .collect(Collectors.toList());
+    }
+
+    private final ConnectionProvider connectionProvider;
+
+    public TodoDAO() {
+        this(DBManager::getConnection);
+    }
+
+    public TodoDAO(ConnectionProvider connectionProvider) {
+        this.connectionProvider = connectionProvider;
+    }
+
+    private Connection getConnection() throws SQLException {
+        return connectionProvider.get();
     }
 }
