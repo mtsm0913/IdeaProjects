@@ -20,6 +20,7 @@ public class Todo {
     // TODO: 各フィールドのgetterを作成する
     // ヒント: IntelliJ IDEAでは Alt + Insert → Generate Getters で自動生成できる
 
+
     public int getId() {
         // TODO: idを返す
         return id;
